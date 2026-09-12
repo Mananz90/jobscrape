@@ -173,6 +173,9 @@ and Glassdoor jobs get the country of the edition they came from even when the c
 
 **Launcher.** Double-click `JobScrape.command` in Finder to open the wizard in a terminal.
 
+**Your watched companies** live in `config/sources.json`, which is gitignored: the first run seeds it from
+`config/sources.example.json`. Add to it with `import`, `discover` or the wizard.
+
 **Browser sessions.** The `*-browser` sources share one persistent profile in `data/browser-profile`, driven through
 patchright (a Playwright fork that hides the automation fingerprint Cloudflare keys on) and your installed Google
 Chrome when present. One-time setup: `node src/index.ts login indeed,glassdoor --country DE` opens a visible window;

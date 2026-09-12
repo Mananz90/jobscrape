@@ -2,6 +2,9 @@ node_modules/
 scrapling/.venv/
 logs/
 .env
+# your watched companies (seeded from config/sources.example.json on first run)
+config/sources.json
+config/sources.local-backup.json
 data/*.db*
 data/browser-profile/
 data/exports/
