@@ -197,6 +197,11 @@ the line this project does not cross, for personal use and even more so for a pr
 visible-window path where the user passes the check once. Scrapling's other asset, adaptive selectors that relocate
 elements after markup changes, is available through the bridge's `extract` mode for future adapters.
 
+Rate matters as much as fingerprint: after roughly a day of repeated testing from one address, glassdoor.de began
+answering the TLS-fingerprinted HTTP path and the stealth-Firefox path with a Cloudflare challenge, while the visible
+Chrome window with its saved clearance cookie kept working. The headless `glassdoor` source therefore falls back to
+`glassdoor-browser` on a 403 or 429 instead of failing, and the daily run keeps its request volume low.
+
 The single most important finding: **the checkbox looping is not the user failing the check, it is the site detecting
 the automation layer**. Stock Playwright, even visible and on real Chrome, was rejected every time; patchright with a
 clean profile and no user-agent, locale or timezone overrides passed on the first click. Emulation overrides that

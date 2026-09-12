@@ -69,7 +69,7 @@ naming the source, because a silent zero looks exactly like "no jobs today".
 | Board or platform | How it is fetched | Notes |
 |---|---|---|
 | **LinkedIn** | headless Chromium via patchright, or the guest HTTP endpoint for quick checks | up to 300 per query with descriptions; optional one-time sign-in |
-| **Glassdoor** | Scrapling HTTP with a real Chrome TLS fingerprint, no browser | headless, ~2 s per query, city-scoped via Glassdoor's own lookup |
+| **Glassdoor** | Scrapling HTTP with a real Chrome TLS fingerprint, no browser | headless, ~2 s per query, city-scoped via Glassdoor's own lookup; after heavy use Glassdoor challenges the address and the source hands over to the browser one |
 | **Indeed** | real Chrome in a visible window on the country edition | Cloudflare needs one click from you the first time; the session is saved |
 | **Greenhouse · Lever · Ashby · Workable · SmartRecruiters · Recruitee · Personio · Workday** | public ATS APIs | any company; `import "N26, Personio, sap.com"` resolves names to boards |
 | **The Muse · Jobicy · Himalayas · Remotive · RemoteOK · Arbeitnow** | open JSON APIs | keyless |

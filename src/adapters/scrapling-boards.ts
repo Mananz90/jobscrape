@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import type { SourceAdapter, SearchQuery, RawJob } from "../types.ts";
 import { scrapling, scraplingAvailable } from "../scrapling.ts";
 import { GLASSDOOR_HOSTS } from "../regions.ts";
+import { glassdoorBrowser } from "./browser-boards.ts";
 
 /**
  * Headless Glassdoor powered by the Scrapling sidecar (Python). Measured on glassdoor.de, Sept 2026: plain HTTP with a real
@@ -40,7 +41,15 @@ export const glassdoorScrapling: SourceAdapter = {
       else ctx.log(`location "${city}" not found; country-wide results`);
     }
     const [first] = await scrapling({ mode: "http", urls: [`https://${host}/Job/jobs.htm?${p}`], timeout_ms: 45_000 });
-    if (!first || (first.status ?? 500) >= 400) throw new Error(`${host} returned ${first?.status ?? "no response"} (${first?.title ?? ""})`);
+    if (!first || (first.status ?? 500) >= 400) {
+      // Glassdoor starts challenging an address after heavy use. The visible-window source carries the saved clearance
+      // cookie and usually still passes; hand over to it rather than failing the search.
+      if ((first?.status === 403 || first?.status === 429) && process.env.JOBSCRAPE_GLASSDOOR_FALLBACK !== "0") {
+        ctx.log(`${host} answered ${first.status} on the HTTP path; falling back to the browser source`);
+        return glassdoorBrowser.search!(q, ctx);
+      }
+      throw new Error(`${host} returned ${first?.status ?? "no response"} (${first?.title ?? ""})`);
+    }
 
     const out = new Map<string, RawJob>();
     const parse = (html: string) => {
