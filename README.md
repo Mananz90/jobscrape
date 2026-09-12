@@ -99,7 +99,7 @@ The long version of the trade-offs, including what was tried against Cloudflare 
 ## Commands
 
 ```bash
-node src/index.ts search -k "data engineer" -l "Berlin, Germany" -c DE --posted 7d --remote hybrid --sources linkedin,themuse --profile manan --save berlin-de
+node src/index.ts search -k "data engineer" -l "Berlin, Germany" -c DE --posted 7d --remote hybrid --sources linkedin,themuse --profile me --save berlin-de
 node src/index.ts match ~/cv.pdf --name me --local        # profile + search + rank; --local also ranks watched-company jobs
 node src/index.ts import "N26, Personio, sap.com, https://stripe.com/jobs"
 node src/index.ts import config/packs/germany-tech.txt          # packs: big-tech, germany-tech

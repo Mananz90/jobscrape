@@ -1,4 +1,5 @@
-// Regenerates docs/img/*.png: node scripts/screenshots.ts <wizard-transcript.txt> <digest.html>  (needs `serve` running on :3215)
+// Regenerates docs/img/*.png: node scripts/screenshots.ts <wizard-transcript.txt> <file:///…/digest.html> [profile-name]
+// Needs `JOBSCRAPE_PORT=3215 node src/index.ts serve` running.
 import { chromium } from "patchright";
 import { readFileSync, writeFileSync } from "node:fs";
 const b = await chromium.launch({ headless: true });
@@ -6,13 +7,13 @@ const ctx = await b.newContext({ viewport: { width: 1280, height: 860 }, deviceS
 const page = await ctx.newPage();
 // 1) dashboard with a CV-ranked search
 await page.goto("http://localhost:3215/", { waitUntil: "networkidle" });
-await page.selectOption("#prof2", "manandeep");
+await page.selectOption("#prof2", process.argv[4] ?? "");  // profile name to rank by, optional
 await page.fill("#f input[name=q]", "consultant");
 await page.click("#f button[type=submit], #f button:not([type=button])");
 await page.waitForTimeout(2500);
 await page.screenshot({ path: "docs/img/dashboard.png" });
 // 2) the HTML digest report
-await page.goto("file:///Users/gillz/Claude/jobscrape/data/digests/2026-09-12.html");
+await page.goto(process.argv[3]);  // file:// URL of a generated digest
 await page.waitForTimeout(500);
 await page.screenshot({ path: "docs/img/digest.png", clip: { x: 0, y: 0, width: 1280, height: 720 } });
 // 3) wizard transcript rendered as a terminal
