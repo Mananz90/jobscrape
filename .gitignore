@@ -1,0 +1,9 @@
+node_modules/
+scrapling/.venv/
+logs/
+.env
+data/*.db*
+data/browser-profile/
+data/exports/
+data/digests/
+.DS_Store

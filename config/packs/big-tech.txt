@@ -1,0 +1,26 @@
+Stripe
+Anthropic
+Airbnb
+Dropbox
+Figma
+Notion
+Spotify
+Cloudflare
+Datadog
+Coinbase
+Robinhood
+Reddit
+Discord
+Duolingo
+Canva
+Zapier
+GitLab
+HashiCorp
+Vercel
+Ramp
+Brex
+Plaid
+Rippling
+Scale AI
+Databricks
+OpenAI

@@ -1,0 +1,35 @@
+{
+  "name": "jobscrape",
+  "version": "0.1.0",
+  "description": "Self-hosted job scraping platform: pluggable adapters for ATS APIs, job boards and generic career pages, with normalization, dedup, scheduling and a REST API.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "start": "node src/index.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "run": "node src/index.ts run",
+    "serve": "node src/index.ts serve",
+    "detect": "node src/index.ts detect",
+    "sources": "node src/index.ts sources",
+    "schedule": "node src/index.ts schedule",
+    "setup:scrapling": "python3 -m venv scrapling/.venv && scrapling/.venv/bin/pip install -q \"scrapling[fetchers]\" && scrapling/.venv/bin/scrapling install"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "cheerio": "^1.0.0",
+    "mammoth": "^1.12.2",
+    "patchright": "^1.63.0",
+    "unpdf": "^1.8.1",
+    "zod": "^4.6.2"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.63.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "typescript": "^7.0.2"
+  }
+}

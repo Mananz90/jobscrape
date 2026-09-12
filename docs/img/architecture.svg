@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f1115"/><stop offset="1" stop-color="#171b26"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker>
+    <style>
+      .box{fill:#1b1f2a;stroke:#2c3140;stroke-width:1.5;rx:10}
+      .t{fill:#e5e7eb;font-size:15px;font-weight:600}
+      .s{fill:#9aa2b1;font-size:12px}
+      .k{fill:#7ab4ff;font-size:12px}
+      .g{fill:#7ee0a0}
+      .y{fill:#febc2e}
+      .line{stroke:#6b7280;stroke-width:1.6;fill:none;marker-end:url(#arr)}
+    </style>
+  </defs>
+  <rect width="1200" height="560" fill="url(#bg)"/>
+  <text x="40" y="44" fill="#e5e7eb" font-size="22" font-weight="700">jobscrape — how a search flows</text>
+  <text x="40" y="66" class="s">every source is a plugin; search, ranking, storage and alerts are separate modules</text>
+
+  <!-- inputs -->
+  <rect x="40" y="110" width="210" height="120" class="box"/>
+  <text x="56" y="136" class="t">You</text>
+  <text x="56" y="160" class="s">Wizard · CLI · REST API</text>
+  <text x="56" y="180" class="s">CV / job description (PDF, DOCX)</text>
+  <text x="56" y="200" class="s">Region · country · city · dates</text>
+  <text x="56" y="220" class="s">Work mode · type · seniority</text>
+
+  <!-- query -->
+  <rect x="300" y="130" width="170" height="80" class="box"/>
+  <text x="316" y="158" class="t">SearchQuery</text>
+  <text x="316" y="180" class="s">+ profile (skills, titles,</text>
+  <text x="316" y="196" class="s">seniority, keywords)</text>
+
+  <!-- sources -->
+  <rect x="520" y="90" width="300" height="200" class="box"/>
+  <text x="536" y="116" class="t">Sources (parallel, region-aware)</text>
+  <text x="536" y="140" class="k">LinkedIn</text><text x="600" y="140" class="s">headless Chromium (patchright)</text>
+  <text x="536" y="160" class="k">Glassdoor</text><text x="608" y="160" class="s">Scrapling HTTP, TLS fingerprint</text>
+  <text x="536" y="180" class="k">Indeed</text><text x="588" y="180" class="s">real Chrome, one click from you</text>
+  <text x="536" y="200" class="k">ATS</text><text x="570" y="200" class="s">Greenhouse · Lever · Ashby · Workday …</text>
+  <text x="536" y="220" class="k">Boards</text><text x="588" y="220" class="s">Muse · Jobicy · Adzuna · Jooble …</text>
+  <text x="536" y="240" class="k">Apify</text><text x="580" y="240" class="s">ZipRecruiter · Naukri · StepStone</text>
+  <text x="536" y="260" class="k">Career pages</text><text x="626" y="260" class="s">JSON-LD crawl fallback</text>
+  <text x="536" y="280" class="s">each opens its country edition (de.indeed.com, glassdoor.de …)</text>
+
+  <!-- normalize -->
+  <rect x="870" y="130" width="290" height="80" class="box"/>
+  <text x="886" y="158" class="t">Normalize · dedupe · store</text>
+  <text x="886" y="180" class="s">one schema, fingerprint across boards,</text>
+  <text x="886" y="196" class="s">content hash, open/closed lifecycle (SQLite)</text>
+
+  <!-- ranking -->
+  <rect x="870" y="260" width="290" height="110" class="box"/>
+  <text x="886" y="288" class="t">Rank by fit</text>
+  <text x="886" y="310" class="s">keyword: title · skills · location · seniority</text>
+  <text x="886" y="328" class="s">semantic: local embeddings (Ollama)</text>
+  <text x="886" y="346" class="g" font-size="12">50 / 50 blend · matched &amp; missing skills</text>
+  <text x="886" y="362" class="s">per-company cap · dead-link check</text>
+
+  <!-- outputs -->
+  <rect x="520" y="330" width="300" height="130" class="box"/>
+  <text x="536" y="358" class="t">Outputs</text>
+  <text x="536" y="382" class="s">Terminal table · HTML report · CSV / JSON / MD</text>
+  <text x="536" y="402" class="s">Web dashboard with application tracker</text>
+  <text x="536" y="422" class="y" font-size="12">Daily 08:30: Telegram + desktop alerts, digest</text>
+  <text x="536" y="442" class="s">Source-health alerts when a scraper breaks</text>
+
+  <!-- companies -->
+  <rect x="40" y="330" width="430" height="130" class="box"/>
+  <text x="56" y="358" class="t">Company discovery</text>
+  <text x="56" y="382" class="s">Type names, domains or careers URLs → resolved to the ATS behind them</text>
+  <text x="56" y="402" class="s">Discover by keyword ("Berlin fintech") via search engines</text>
+  <text x="56" y="422" class="s">Packs: curated company lists you can import in one command</text>
+  <text x="56" y="442" class="s">Watched companies are refreshed on every daily run</text>
+
+  <!-- arrows -->
+  <path d="M250 170 L300 170" class="line"/>
+  <path d="M470 170 L520 170" class="line"/>
+  <path d="M820 170 L870 170" class="line"/>
+  <path d="M1015 210 L1015 260" class="line"/>
+  <path d="M870 315 L820 380" class="line"/>
+  <path d="M470 395 L520 395" class="line"/>
+  <path d="M255 330 L300 210" class="line"/>
+
+  <text x="40" y="520" class="s">Runs locally on a Mac: Node 22+, built-in SQLite, no cloud. Optional: Ollama for semantic matching, Python sidecar for Scrapling, API keys for extra boards.</text>
+</svg>

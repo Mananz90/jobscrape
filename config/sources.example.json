@@ -1,0 +1,11 @@
+[
+  { "adapter": "greenhouse", "key": "stripe", "company": "Stripe" },
+  { "adapter": "lever", "key": "spotify", "company": "Spotify" },
+  { "adapter": "ashby", "key": "openai", "company": "OpenAI" },
+  { "adapter": "smartrecruiters", "key": "BoschGroup", "company": "Bosch", "options": { "maxPages": 5 } },
+  { "adapter": "workday", "key": "sap.wd3|sap|SAPCareers", "company": "Example Workday tenant", "enabled": false, "options": { "maxJobs": 200 } },
+  { "adapter": "remotive", "key": "", "options": { "category": "software-dev" } },
+  { "adapter": "arbeitnow", "key": "", "options": { "pages": 2 } },
+  { "adapter": "remoteok", "key": "", "enabled": false },
+  { "adapter": "adzuna", "key": "de", "enabled": false, "options": { "what": "product manager", "pages": 1 } }
+]
