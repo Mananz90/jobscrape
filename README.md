@@ -92,7 +92,8 @@ USAJOBS. Indeed and Glassdoor open their country editions. Whole-region searches
   unless you add an API key.
 
 The long version of the trade-offs, including what was tried against Cloudflare and why some paths were rejected, is in
-[CHALLENGES.md](CHALLENGES.md).
+[CHALLENGES.md](CHALLENGES.md). If you want to add a source, [CONTRIBUTING.md](CONTRIBUTING.md) covers the adapter
+interface, the two places to register it, and the four lines a source has to return.
 
 ---
 
