@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import type { SourceAdapter } from "../types.ts";
 export const ashby: SourceAdapter = {
   name: "ashby",

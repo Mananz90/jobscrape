@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import { createServer } from "node:http";
 import { Store } from "./store.ts";
 import { runAll } from "./runner.ts";

@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Copyright (C) 2026 Manandeep Gill
 # Scripted wizard run (answers piped in) — a quick regression check that the flow still works end to end.
 # Usage: tests/wizard-smoke.sh [profile-number]   (defaults: Match a CV → first saved profile → defaults → 30d → LinkedIn+Glassdoor+Muse → 20 results)
 cd "$(dirname "$0")/.."

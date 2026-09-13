@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import type { SourceAdapter, SearchQuery, RawJob } from "../types.ts";
 
 /** Boards with open, query-capable JSON APIs. All keyless unless `requires` says otherwise. */

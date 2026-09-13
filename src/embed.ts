@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 /**
  * Local embeddings through Ollama (default model nomic-embed-text, 768-dim, runs on the Mac, nothing leaves the machine).
  * Used to add semantic similarity to the match score so "K8s" matches "Kubernetes" and "process architecture" matches

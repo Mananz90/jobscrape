@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import type { FetchContext } from "./types.ts";
 
 const UAS = [

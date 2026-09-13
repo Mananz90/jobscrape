@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import { readFileSync } from "node:fs";
 import { extname } from "node:path";
 import { z } from "zod";

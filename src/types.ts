@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 /** Canonical job record every adapter must produce. */
 export interface Job {
   /** Stable id: `${source}:${externalId}` */

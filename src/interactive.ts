@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 import { execFile } from "node:child_process";

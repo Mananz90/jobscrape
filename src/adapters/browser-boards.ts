@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import type { SourceAdapter, SearchQuery, RawJob, FetchContext } from "../types.ts";
 import type { Page } from "playwright";
 import { withPage, waitForChallenge, humanPause, openWithEscalation, requireHeadful } from "../browser.ts";

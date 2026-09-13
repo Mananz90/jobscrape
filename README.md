@@ -203,9 +203,11 @@ attacks each part.
 
 Copyright © 2026 Manandeep Gill.
 
+Every source file carries an [SPDX](https://spdx.dev) short-form notice; the full text is in [LICENSE](LICENSE).
+
 jobscrape is free software under the **GNU Affero General Public License v3.0 or later**. You may use, study, modify
 and redistribute it. Two obligations come with that: derivative works carry the same licence, and if you run a modified
-version as a network service, its users must be able to obtain your source. The full text is in [LICENSE](LICENSE).
+version as a network service, its users must be able to obtain your source.
 
 The copyright is held by the author, so a separate commercial licence can be granted to anyone who wants to build on
 this without the AGPL obligations. Open an issue to ask.

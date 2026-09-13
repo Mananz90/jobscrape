@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import { parseArgs } from "node:util";
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { Store } from "./store.ts";

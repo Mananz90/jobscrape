@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import { adapters } from "./adapters/index.ts";
 import { request, makeContext } from "./http.ts";
 import type { SourceConfig } from "./types.ts";

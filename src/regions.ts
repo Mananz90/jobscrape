@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 /**
  * Regional coverage per source. "global" = accepts any location string; a list = supported ISO-3166 alpha-2 codes.
  * `host` maps a country to the regional site so each board is queried on its own country edition.

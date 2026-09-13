@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 // Regenerates docs/img/*.png: node scripts/screenshots.ts <wizard-transcript.txt> <file:///…/digest.html> [profile-name]
 // Needs `JOBSCRAPE_PORT=3215 node src/index.ts serve` running.
 import { chromium } from "patchright";

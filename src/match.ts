@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import type { Profile } from "./profile.ts";
 import type { Store } from "./store.ts";
 import { ollamaUp, embed, cosine, cosineToPercent, EMBED_MODEL } from "./embed.ts";

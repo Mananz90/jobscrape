@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import { readFileSync, writeFileSync, existsSync, copyFileSync } from "node:fs";
 import type { SourceConfig } from "./types.ts";
 

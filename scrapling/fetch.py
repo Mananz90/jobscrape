@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Copyright (C) 2026 Manandeep Gill
 """
 jobscrape <-> Scrapling bridge. Reads one JSON request on stdin, writes one JSON response on stdout.
 

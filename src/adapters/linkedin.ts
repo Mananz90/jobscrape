@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Manandeep Gill
 import * as cheerio from "cheerio";
 import type { SourceAdapter, SearchQuery, RawJob, FetchContext } from "../types.ts";
 
