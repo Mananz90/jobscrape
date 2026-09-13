@@ -14,7 +14,8 @@
   <img alt="TypeScript" src="https://img.shields.io/badge/typescript-no%20build%20step-3178c6"> 
   <img alt="SQLite" src="https://img.shields.io/badge/storage-built--in%20SQLite-0f80cc"> 
   <img alt="Local first" src="https://img.shields.io/badge/runs-on%20your%20Mac-111"> 
-  <img alt="Sources" src="https://img.shields.io/badge/sources-27-7ab4ff">
+  <img alt="Sources" src="https://img.shields.io/badge/sources-31-7ab4ff">
+  <a href="LICENSE"><img alt="Licence: AGPL-3.0-or-later" src="https://img.shields.io/github/license/Mananz90/jobscrape?color=8a63d2&label=licence"></a>
 </p>
 
 ```bash
