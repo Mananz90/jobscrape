@@ -31,5 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.20.2",
     "typescript": "^7.0.2"
-  }
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": "Manandeep Gill"
 }

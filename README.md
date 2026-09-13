@@ -198,3 +198,20 @@ exporting a `SourceAdapter` with `fetchJobs` (configured sources) and/or `search
 
 See [CHALLENGES.md](CHALLENGES.md) for what is hard about "all job boards and all companies" and how this design
 attacks each part.
+
+## Licence
+
+Copyright © 2026 Manandeep Gill.
+
+jobscrape is free software under the **GNU Affero General Public License v3.0 or later**. You may use, study, modify
+and redistribute it. Two obligations come with that: derivative works carry the same licence, and if you run a modified
+version as a network service, its users must be able to obtain your source. The full text is in [LICENSE](LICENSE).
+
+The copyright is held by the author, so a separate commercial licence can be granted to anyone who wants to build on
+this without the AGPL obligations. Open an issue to ask.
+
+**A note on what you scrape.** The licence covers this code, not the data it collects. Job postings belong to whoever
+published them, and several of the sources here have terms that restrict automated access or redistribution. Personal
+use is one thing; running this commercially is another, and [CHALLENGES.md](CHALLENGES.md) sets out which sources are
+safe to build a product on and which are not.
+
