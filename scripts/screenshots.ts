@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (C) 2026 Manandeep Gill
-// Regenerates docs/img/*.png: node scripts/screenshots.ts <wizard-transcript.txt> <file:///…/digest.html> [profile-name]
+// Regenerates docs/img/*.png:
+//   node scripts/screenshots.ts <wizard-transcript.txt> <file:///…/digest.html> [profile-name] [health-transcript.txt]
 // Needs `JOBSCRAPE_PORT=3215 node src/index.ts serve` running.
 import { chromium } from "patchright";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -18,14 +19,25 @@ await page.screenshot({ path: "docs/img/dashboard.png" });
 await page.goto(process.argv[3]);  // file:// URL of a generated digest
 await page.waitForTimeout(500);
 await page.screenshot({ path: "docs/img/digest.png", clip: { x: 0, y: 0, width: 1280, height: 720 } });
-// 3) wizard transcript rendered as a terminal
-const transcript = readFileSync(process.argv[2], "utf8");
+// 3) + 4) terminal transcripts rendered as a macOS-style window
 const esc = (s: string) => s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]!));
-const html = `<html><body style="margin:0;background:#0b0d12"><div style="width:1180px;margin:30px auto;background:#151821;border-radius:12px;box-shadow:0 20px 60px #0008;overflow:hidden;font:14px/1.45 'SF Mono',Menlo,monospace;color:#d7dae0">
-<div style="background:#1f232e;padding:10px 14px;display:flex;gap:8px"><span style="width:12px;height:12px;border-radius:6px;background:#ff5f57"></span><span style="width:12px;height:12px;border-radius:6px;background:#febc2e"></span><span style="width:12px;height:12px;border-radius:6px;background:#28c840"></span><span style="margin-left:12px;color:#8a90a0">jobscrape — node src/index.ts</span></div>
-<pre style="margin:0;padding:18px 22px;white-space:pre-wrap">${esc(transcript).replace(/^(\? .*)$/gm, '<span style="color:#7ab4ff">$1</span>').replace(/^(Plan:.*)$/gm, '<span style="color:#febc2e">$1</span>').replace(/^(\d+ +\d+% +\d+%.*)$/gm, (m) => Number(m.split(/\s+/)[1]) >= 70 ? `<span style="color:#7ee0a0">${m}</span>` : m)}</pre></div></body></html>`;
-await page.setContent(html);
-await page.setViewportSize({ width: 1280, height: 900 });
-await page.screenshot({ path: "docs/img/wizard.png", fullPage: true });
+const colour = (t: string) => esc(t)
+  .replace(/^(\? .*)$/gm, '<span style="color:#7ab4ff">$1</span>')
+  .replace(/^(Plan:.*)$/gm, '<span style="color:#febc2e">$1</span>')
+  .replace(/^(.*✗.*)$/gm, '<span style="color:#ff6b6b">$1</span>')
+  .replace(/^(.*⚠.*)$/gm, '<span style="color:#febc2e">$1</span>')
+  .replace(/^(\d+ +\d+% +\d+%.*)$/gm, (m) => Number(m.split(/\s+/)[1]) >= 70 ? `<span style="color:#7ee0a0">${m}</span>` : m);
+async function terminal(transcript: string, title: string, out: string) {
+  await page.setContent(`<html><body style="margin:0;background:#0b0d12"><div style="width:1180px;margin:30px auto;background:#151821;border-radius:12px;box-shadow:0 20px 60px #0008;overflow:hidden;font:14px/1.45 'SF Mono',Menlo,monospace;color:#d7dae0">
+<div style="background:#1f232e;padding:10px 14px;display:flex;gap:8px"><span style="width:12px;height:12px;border-radius:6px;background:#ff5f57"></span><span style="width:12px;height:12px;border-radius:6px;background:#febc2e"></span><span style="width:12px;height:12px;border-radius:6px;background:#28c840"></span><span style="margin-left:12px;color:#8a90a0">${esc(title)}</span></div>
+<pre style="margin:0;padding:18px 22px;white-space:pre-wrap">${colour(transcript)}</pre></div></body></html>`);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  // body.scrollHeight floors at the viewport, so measure the window element itself and add its 30px margins
+  const h = await page.evaluate(() => Math.ceil(document.querySelector("div")!.getBoundingClientRect().height) + 60);
+  await page.setViewportSize({ width: 1280, height: Math.max(200, h) });
+  await page.screenshot({ path: out, fullPage: true });
+}
+await terminal(readFileSync(process.argv[2], "utf8"), "jobscrape — node src/index.ts", "docs/img/wizard.png");
+if (process.argv[5]) await terminal(readFileSync(process.argv[5], "utf8"), "jobscrape — node src/index.ts health", "docs/img/health.png");
 await b.close();
 console.log("screenshots done");

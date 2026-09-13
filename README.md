@@ -62,8 +62,14 @@ Live web search with source checkboxes and CV ranking, filters over everything s
 
 Registered as a launchd agent at 08:30. It refreshes every watched company, re-runs your saved searches, ranks what is
 new, checks that the top links are still live, caps results per employer, writes a Markdown + HTML digest, and sends the
-top matches to Telegram, a webhook and the macOS notification centre. If a scraper breaks, you get a separate alert
-naming the source, because a silent zero looks exactly like "no jobs today".
+top matches to Telegram, a webhook and the macOS notification centre.
+
+<img src="docs/img/health.png" alt="source health check" width="100%">
+
+If a scraper breaks you get a separate alert naming the source, because a silent zero looks exactly like "no jobs
+today". `node src/index.ts health` answers the same question on demand: what failed, what is fetching far less than its
+own seven-day average, and what has gone quiet. The run above is an example with all three populated; a good morning
+prints three zeros.
 
 ## What is under the hood, in one table
 
